@@ -1,0 +1,5 @@
+# Contact Form
+smptCredentials.php
+dbConnect.php
+PHPMailer/
+.DS_Store
