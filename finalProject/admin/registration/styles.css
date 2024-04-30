@@ -1,0 +1,147 @@
+/* Media query for small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+  .navbar-collapse {
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+  .navbar-nav {
+    flex-direction: column;
+    padding-left: 0;
+  }
+  .navbar-nav .nav-item {
+    margin-bottom: 0.5rem;
+  }
+  .col-md-6 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .adminOptions {
+    width: 75%;
+    padding-left: 30px;
+    padding-right: 30px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .card.bg-light {
+    width: 100%;
+    margin: auto;
+  }
+}
+
+/* Medium devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  .col-md-6 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .card.bg-light {
+    width: 100%;
+
+    margin: auto;
+  }
+}
+
+/* Large devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .col-md-6 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .card.bg-light {
+    width: 100%;
+    margin: auto;
+  }
+}
+
+/* Extra large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .adminOptions {
+    width: 75%;
+    padding: 0 !important;
+    display: flex;
+    justify-content: center;
+  }
+
+  .card.bg-light {
+    width: 100%;
+    margin: auto;
+  }
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #00bf6380;
+  padding: 20px;
+  text-align: center;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+  margin-bottom: 100px;
+}
+
+section {
+  margin-bottom: 20px;
+  flex: 1 1 45%;
+}
+
+/*Button styles */
+.btn {
+  background-color: #00bf6380;
+}
+
+.btn a {
+  color: white;
+}
+
+/* Link styles */
+a {
+  color: #00bbbf;
+}
+
+a:hover {
+  color: #005cbf;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
+.btn a:hover {
+  text-decoration: none;
+  color: #005cbf;
+  font-weight: 400;
+}
+
+a:active {
+  text-decoration: none;
+}
+
+/* Link button styles */
+.linkButton {
+  background-color: #00bf6380;
+}
+
+.linkButton:hover {
+  background-color: #00bfa4;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color: gray;
+  padding-top: 25px;
+}

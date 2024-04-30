@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Metadata -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home | Any-Plate</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Font Families -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Custom Stylesheets -->
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="fonts.css" />
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <style>
+      .hidden {
+        display: none;
+      }
+
+      .btn {
+        background-color: #00bf6380;
+        margin-bottom: 30px;
+      }
+
+      .btn:hover {
+        background-color: #00bfa4;
+      }
+    </style>
+  </head>
+  <body>
+    <!--Navigation Menu-->
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-light rounded poppins-regular"
+    >
+      <div class="container">
+        <a class="navbar-brand" href="index.html"
+          ><img src="images/logo.png" width="200px"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navContent"
+          aria-controls="navContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navContent"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contactPage/contact_form.php"
+                >Contact Us</a
+              >
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="admin/registration/login.php">Login</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="py-3 mb-3 border-bottom">
+      <div class="jumbotron text-center py-4">
+        <h1 class="display-5 poppins-semibold">
+          Savor Every Bite, Explore Every Recipe: <br />Any-Plate
+        </h1>
+        <p class="lead poppins-light">
+          Your go-to destination for a world of delicious recipes
+        </p>
+      </div>
+    </header>
+
+    <main>
+      <!-- Left Section -->
+      <div class="container-fluid bg-light border rounded-3" id="recipeList">
+        <section>
+          <!-- Title for the recipe list -->
+          <h1 class="display-6 text-center">Recipes</h1>
+          <hr />
+          <!-- List of recipes -->
+          <ul id="recipes"></ul>
+        </section>
+      </div>
+
+      <!-- Right Section -->
+      <div class="bg-light border rounded-3" id="imageAndDetails">
+        <!-- Main image section -->
+        <section id="mainImage">
+          <!-- Carousel for displaying images -->
+          <div
+            id="carouselControls"
+            class="carousel slide"
+            data-bs-ride="carousel"
+          >
+            <div class="carousel-inner" id="carouselInner"></div>
+
+            <!-- Carousel control buttons -->
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselControls"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselControls"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- Recipe Details Section -->
+        <section id="recipeDetails" class="hidden p-4">
+          <!-- Container for displaying recipe details -->
+          <div id="recipeInfo" class="text-center">
+            <!-- Recipe name, image, servings, preparation time, cooking time, and difficulty -->
+            <h2 id="recipeName" class="mb-3"></h2>
+            <img
+              src=""
+              alt="Recipe Image"
+              id="recipeImage"
+              class="rounded-3 m-3"
+            />
+            <p id="servings">
+              Servings: <span id="servingsValue"></span
+              ><!-- Placeholder for servings -->
+            </p>
+            <!-- Dropdown for changing servings -->
+            <label for="servingsDropdown" class="form-label"
+              >Change Servings:</label
+            >
+            <select
+              id="servingsDropdown"
+              class="form-label"
+              onchange="changeServings(this.value)"
+            >
+              <option value="normal">Normal Quantity</option>
+              <option value="half">Half Quantity</option>
+              <option value="double">Double Quantity</option>
+            </select>
+            <!-- Preparation and cooking time -->
+            <p id="prepTime">
+              Preparation Time:
+              <span id="prepTimeValue"></span>
+              mins<!-- Placeholder for preparation time -->
+            </p>
+            <p id="cookTime">
+              Cooking Time:
+              <span id="cookTimeValue"></span>
+              mins<!-- Placeholder for cooking time -->
+            </p>
+            <!-- Difficulty level -->
+            <p id="difficulty">
+              Difficulty: <span id="difficultyValue"></span
+              ><!-- Placeholder for difficulty level -->
+            </p>
+          </div>
+
+          <!-- Ingredients list -->
+          <div id="ingredients" class="p-3">
+            <h6>Ingredients:</h6>
+            <ul id="ingredientList"></ul>
+
+            <!-- Button to toggle display of ingredients list -->
+            <button
+              class="btn btn-outline-dark toggle-button"
+              data-list="ingredientList"
+            >
+              Toggle Ingredients
+            </button>
+          </div>
+
+          <!-- Instructions list -->
+          <div id="instructions" class="p-4">
+            <h6>Instructions:</h6>
+            <ol id="instructionList"></ol>
+          </div>
+
+          <!-- Button to toggle display of instructions list -->
+          <button
+            class="btn btn-outline-dark toggle-button"
+            data-list="instructionList"
+          >
+            Toggle Instructions
+          </button>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-light text-center border-top">
+      <p>&copy; <span id="currentYear"></span> Any-Plate</p>
+      <!-- Footer text with current year -->
+    </footer>
+
+    <!-- Bootstrap and JavaScript Bundle -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- JavaScript -->
+    <script src="index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,188 @@
+header {
+  background-color: #00bf6380;
+  padding: 20px;
+  text-align: center;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+  margin-bottom: 100px;
+}
+
+.d-grid {
+  grid-template-columns: 1fr;
+}
+
+/* Container for both left and right sections */
+.container-fluid {
+  grid-template-columns: minmax(200px, auto) 1fr;
+  padding: 20px;
+}
+
+/* Button styles */
+.btn {
+  background-color: #00bf6380;
+  color: white;
+}
+
+/* Link styles */
+a {
+  color: #00bbbf;
+}
+
+a:hover {
+  color: #005cbf;
+}
+
+a:link,
+a:visited,
+.btn a:hover,
+a:active {
+  text-decoration: none;
+}
+
+#recipeList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#recipes {
+  width: 100%;
+  padding: 0;
+  list-style-type: none;
+  text-align: center;
+}
+
+/* Right Section */
+#imageAndDetails {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
+/* Carousel image size */
+.carousel-item img {
+  height: 250px;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+/* Recipe Details Section */
+#recipeDetails {
+  margin-top: 20px;
+}
+
+img#recipeImage {
+  max-width: 50%;
+  height: auto;
+}
+
+/* Media query for small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+  .navbar-collapse {
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+  .navbar-nav {
+    flex-direction: column;
+    padding-left: 0;
+  }
+  .navbar-nav .nav-item {
+    margin-bottom: 0.5rem;
+  }
+
+  .container-fluid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  /* Adjust layout for small screens */
+  #recipeList {
+    order: 2; /* Move recipe list to the bottom */
+    width: 100%; /* Full width */
+  }
+  #imageAndDetails {
+    order: 1; /* Move carousel/recipe details to the top */
+    width: 100%; /* Full width */
+  }
+
+  /* Adjust image size for small screens */
+  .carousel-inner img {
+    max-width: 100%; /* Ensure images don't exceed container width */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  img#recipeImage {
+    max-height: 300px;
+  }
+}
+
+/* Medium devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  .container-fluid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Split into two columns */
+  }
+  /* Position recipe list and carousel/recipe details accordingly */
+  #recipeList {
+    width: 30%;
+  }
+  #imageAndDetails {
+    width: 70%;
+  }
+}
+
+/* Large devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .container-fluid {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    grid-template-columns: 25% 75%;
+  }
+
+  img#recipeImage {
+    max-height: 275px;
+  }
+}
+
+/* Extra large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .container-fluid {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    grid-template-columns: 30% 70%;
+  }
+  img#recipeImage {
+    max-height: 550px;
+  }
+}
+
+/* Extra extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .carousel-item img {
+    height: 500px;
+    max-width: 100%;
+    object-fit: cover;
+    margin: 0 auto;
+  }
+
+  img#recipeImage {
+    max-height: 100%;
+  }
+}
+
+/* Recipe Details Section */
+#recipeDetails {
+  display: none;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color: gray;
+  padding-top: 25px;
+}
